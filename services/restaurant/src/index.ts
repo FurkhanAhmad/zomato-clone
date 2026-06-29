@@ -1,5 +1,10 @@
 import express from 'express'
-
+import connectDB from './config/db.js';
+import dotenv from 'dotenv'
+dotenv.config()
 const app=express()
-
-app.listen()
+const PORT=process.env.PORT ||5000
+app.listen(PORT,()=>{
+    console.log(`Restaurant service is Running on port ${PORT}`);
+    connectDB();
+})
